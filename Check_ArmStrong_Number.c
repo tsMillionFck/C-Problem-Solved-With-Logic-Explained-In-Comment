@@ -6,26 +6,35 @@
 
 int main() {
   int num = 371; // The number we need to check if ArmStrong or not.
-  int q, rem, result = 0,
-              p = 3; // Defining the varibles needed to apply the logic.
-  q = num;           // Copying the org number into a temp variable.
+  int order = 0, rem, result = 0, ctn,
+      mul = 1; // Defining the varibles needed to apply the logic.
+  int q = num; // Copying the org number into a temp variable.
 
-  while (q !=
-         0) { // Applying a while loop with condition till q is not equalt to 0
-    rem = q % 10; // getting the last number
-    int a = 1;    // Defined a varible that will be used to store the
-                  // multiplication of number to it self order n times
-    for (int i = 0; i < p; i++) {
-      a = a * rem; // Multiplying the number order n times to itself.
+  while (q != 0) {
+    q = q / 10; // Removing last number from the temp varible
+    order++;    // Incrementing the count by 1.
+  }
+  ctn = order;
+  q = num;
+
+  while (q != 0) {
+    rem = q % 10;      // Getting the last digit from the number
+    while (ctn != 0) { // Looping till the temp varible containing order of the
+                       // number is 0;
+      mul = mul * rem; // Multiplying the rem with mul varible
+      ctn--;           // Post Decrementing the ctn.
     }
-    printf("%d\t", a);   // Printing the result of multiplication
-    result = result + a; // Adding it to the result varible.
-    q = q / 10;          // Removing the last number from the quotient.
+    result = result + mul; // Adding mul to result
+    q = q / 10; // Removing the last digit from the temp variable holding the
+                // org variable
+    ctn = order; // Re-assigning order to ctn to continue loop for next
+                 // variable.
+    mul = 1; // re-assigning mul to 1, so logic works correctly.
   }
 
   if (result == num) { // Applying the condition to check if its a ArmStrong
                        // number or not, if result is equal equal to the org num
-                       // it's arm strong else not.
+    // it's arm strong else not.
     printf("\n%d is a Armstromg Number\n", num);
   } else {
     printf("%d is not ArmStrong Number\n", num);
