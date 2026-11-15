@@ -20,11 +20,28 @@ int main() {
   //   for (int i = 0; i < b; i++) {
   //     a--;
   //   }
-  sum = a;
-  int i = b;
-  while (i != 0) {
-    sum++;
-    i--;
+
+  if (a >= 0 && b >= 0 || a <= 0 && b >= 0) {
+    sum = a;
+    int i = b;
+    while (i != 0) {
+      sum++;
+      i--;
+    }
+  } else if (a > 0 && b < 0) {
+    sum = a;
+    int i = b;
+    while (i != 0) {
+      sum--;
+      i++;
+    }
+  } else if (a < 0 && b > 0) {
+    sum = a;
+    int i = b;
+    while (i != 0) {
+      sum++;
+      i--;
+    }
   }
 
   printf("The Sum of %d + %d = %d", a, b, sum);
