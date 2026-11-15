@@ -21,26 +21,19 @@ int main() {
   //     a--;
   //   }
 
-  if (a >= 0 && b >= 0 || a <= 0 && b >= 0) {
+  if (b > 0) {
     sum = a;
     int i = b;
     while (i != 0) {
       sum++;
       i--;
     }
-  } else if (a > 0 && b < 0) {
+  } else if (b < 0) {
     sum = a;
     int i = b;
     while (i != 0) {
       sum--;
       i++;
-    }
-  } else if (a < 0 && b > 0) {
-    sum = a;
-    int i = b;
-    while (i != 0) {
-      sum++;
-      i--;
     }
   }
 
